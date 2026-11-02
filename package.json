@@ -1,0 +1,17 @@
+{
+  "name": "portafolio-backend",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "engines": {
+    "node": ">=20.6"
+  },
+  "scripts": {
+    "start": "node --env-file=.env src/server.js",
+    "dev": "node --watch --env-file=.env src/server.js",
+    "test": "node --test"
+  },
+  "dependencies": {
+    "nodemailer": "^10.3.1"
+  }
+}
