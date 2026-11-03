@@ -1,4 +1,5 @@
 import { createServer as createHttpServer } from 'node:http'
+import { pathToFileURL } from 'node:url'
 import nodemailer from 'nodemailer'
 import { validateContact } from './contact-validation.js'
 
@@ -156,7 +157,7 @@ export function createContactServer({
   })
 }
 
-if (import.meta.url === `file://${process.argv[1]}`) {
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
   try {
     const port = Number(process.env.PORT || 3001)
     if (!Number.isInteger(port) || port < 1 || port > 65535) {
